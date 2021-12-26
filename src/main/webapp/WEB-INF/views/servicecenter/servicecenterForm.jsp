@@ -19,6 +19,7 @@
 	}
 </script>
 <body>
+<div class="servicecenter_wrap" style="width: 1240px; margin: 0 auto;">
 	<section class="sub_header_section" style="margin-top: 20px;">
         <h2>고객센터</h2>
 		<br><br>
@@ -30,7 +31,7 @@
 					점심시간 : 12:00 ~ 13:00
 					<br>
 					이메일 : 
-					<a href="contact/new##" style="text-decoration : underline;">이메일 문의하기</a>
+					<a href="#" style="text-decoration : underline;">이메일 문의하기</a>
 					
 					<br>
 					전화 :
@@ -94,5 +95,6 @@
 			<c:import url="/${list }" />
 		</div>
 	</div>
+</div>	
 </body>
 </html>

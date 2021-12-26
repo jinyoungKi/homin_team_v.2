@@ -42,7 +42,13 @@
 	    		
 	    }
     </script>
-<div>
+<c:if test="${empty memberPostcode.zipcode }">
+<script>
+	alert("배송지 등록후 이용가능합니다.");
+	window.history.back();
+</script>
+</c:if>
+<div style="margin: 10px auto; width: 1240px; ">
 	<div class = "info">
 		<div>
 			<h1>고객정보</h1>

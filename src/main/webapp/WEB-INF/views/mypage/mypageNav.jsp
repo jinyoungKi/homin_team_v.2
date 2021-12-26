@@ -13,7 +13,7 @@ span {
 	font-size: 18;
 }
 h2 {
-	font-size: 28;
+	font-size: 36;
 }
 nav ul {
  	list-style: none;
@@ -25,34 +25,29 @@ p {
 
 <aside class="mypage_aside_wrap">
 		<div style="margin-top:20px">
-		<div>
-			<span>MY PAGE</span>
-			<h2>마이페이지</h2>
+		
+		<div class="mypage_main_wrap">
+		<div class="mypage_main_image">
+		<img src="${pageContext.request.contextPath}/resources/image/basket_my.png">	
 		</div>
 		<div>
-		<img src="${pageContext.request.contextPath}/resources/image/basket_my.png">	
+		<h2>${sessionScope.nickname }</h2>
+		</div>
 		</div>
 		
 			
 		</div>
 		<nav class="mypage_aside_nav" >
 			<br>
-			<p>나의 정보 관리</p>
+			<p> > 나의 정보관리</p>
 			<ul>
-				<c:choose>
-					<c:when test="${sessionScope.id eq 'ADMIN@CARE.COM'}">
-						<li><a href="${root }index?formpath=info/manage">회원 정보 관리</a></li>
-						<li><a href="${root }index?formpath=info/addrList">주소지 관리</a></li>
-					</c:when>
-					<c:otherwise>
-<%-- 						<li><a href="/homin/mypage/info/mgmt?id=${sessionScope.id }">회원 정보 관리</a></li> --%>
-						<li><a href="${root }index?formpath=info/mgmt?id=${sessionScope.id }">>회원 정보 관리</a></li>
-						<li><a href="${root }index?formpath=info/addr?id=${sessionScope.id }">>주소지 관리</a></li>
-					</c:otherwise>
-				</c:choose>
-				<li><a href="${root }index?formpath=mypage&category=myinquiry">>1:1 문의 내역</a></li>
-				<li><a href="${root }index?formpath=mypage&category=orderHistory">>주문 내역</a></li>
-				<li><a href="${root}index?formpath=basket">>장바구니</a></li>
+				<c:if test = "${empty sessionScope.access_Token }">
+					<li><a href="${root }index?formpath=info/mgmt?id=${sessionScope.id }">회원 정보 관리</a></li>
+				</c:if>
+				<li><a href="${root }index?formpath=info/addr?id=${sessionScope.id }">주소지 관리</a></li>
+				<li><a href="${root }index?formpath=mypage&category=myinquiry">1:1 문의 내역</a></li>
+				<li><a href="${root }index?formpath=mypage&category=orderHistory">주문 내역</a></li>
+				<li><a href="${root}index?formpath=basket">장바구니</a></li>
 			</ul>
 		</nav>
 </aside>
